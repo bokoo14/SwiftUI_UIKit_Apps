@@ -8,10 +8,39 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @StateObject private var onboardingViewModel: OnboardingViewModel = OnboardingViewModel()
+    @StateObject private var pathModel = PathModel()
+    @StateObject private var onboardingViewModel = OnboardingViewModel()
+    @StateObject private var todoListViewModel = TodoListViewModel()
+    @StateObject private var memoListViewModel = MemoListViewModel()
+    
     var body: some View {
-        // TODO: 화면 전환 구현 필요
-        OnboardingContentView(onboardingViewModel: onboardingViewModel)
+        NavigationStack(path: $pathModel.paths) {
+            // root
+            MemoListView()
+                .environmentObject(memoListViewModel)
+            
+            //OnboardingContentView(onboardingViewModel: onboardingViewModel)
+                .navigationDestination(for: PathType.self) { pathType in
+                    switch pathType {
+                    case .homeView:
+                        HomeView()
+                            .navigationBarBackButtonHidden()
+                    case .todoView:
+                        TodoView()
+                            .navigationBarBackButtonHidden()
+                            .environmentObject(todoListViewModel)
+                    case let .memoView(isCreateMode, memo):
+                        MemoView(
+                            memoViewModel: isCreateMode
+                            ? .init(memo: .init(title: "", content: "", date: .now))
+                            : .init(memo: memo ?? .init(title: "", content: "", date: .now)),
+                            isCreateMode: isCreateMode)
+                        .navigationBarBackButtonHidden()
+                        .environmentObject(memoListViewModel)
+                    }
+                }
+        } // NavigationStack
+        .environmentObject(pathModel) // path를 전역적으로 사용가능
     }
 }
 
@@ -59,13 +88,6 @@ private struct OnboardingCellList: View {
     }
 }
 
-
-/**
- 하위 뷰를 많이 쪼개는 데에 이점이 있다
- 뷰가 계산하기 어려워지거나 스택을 쌓는 데에 버벅인다면 빌드가 안되기떄문
- 프리뷰에서도 버벅이고 보이지 않는 문제가 발생하기도 한다
- */
-
 // MARK: 온보딩 셀 뷰
 private struct OnbordingCellView: View {
     private var onboardingContent: OnboardingContent
@@ -103,11 +125,14 @@ private struct OnbordingCellView: View {
     }
 }
 
+/// 시작하기 버튼
 private struct StartBtnView: View {
+    @EnvironmentObject private var pathModel: PathModel
+    
     fileprivate var body: some View {
         Button {
             // action
-            
+            pathModel.paths.append(.homeView)
         } label: {
             HStack (spacing: 10){
                 Text("시작하기")
@@ -128,10 +153,10 @@ private struct StartBtnView: View {
 }
 
 
+
 #Preview {
     OnboardingView()
 }
-
 
 #Preview {
     OnboardingCellList(onboardingViewModel: OnboardingViewModel(onboardingContents: [OnboardingContent(imageFileName: "onboarding_1", title: "오늘의 할일", subTitle:  "To do list로 언제 어디서든 해야할 일을 한눈에!"), OnboardingContent(imageFileName: "onboarding_1", title: "오늘의 할일", subTitle:  "To do list로 언제 어디서든 해야할 일을 한눈에!")]))
@@ -146,3 +171,10 @@ private struct StartBtnView: View {
 #Preview {
     StartBtnView()
 }
+
+// NOTE: 📝
+/**
+ 하위 뷰를 많이 쪼개는 데에 이점이 있다
+ 뷰가 계산하기 어려워지거나 스택을 쌓는 데에 버벅인다면 빌드가 안되기떄문
+ 프리뷰에서도 버벅이고 보이지 않는 문제가 발생하기도 한다
+ */

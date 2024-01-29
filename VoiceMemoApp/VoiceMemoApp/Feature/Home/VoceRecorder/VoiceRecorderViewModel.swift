@@ -10,8 +10,8 @@ import AVFoundation
 // TODO: NSObject 프로토콜을 채택해야 하는 이유?
 class VoiceRecorderViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var isDisplayRemoveVoiceRecorderAlert: Bool
-    @Published var isDisplayErrorAlert: Bool
-    @Published var errorAlertMessage: String
+    @Published var isDisplayAlert: Bool
+    @Published var alertMessage: String
     
     /// 음성메모 녹음 관련 프로퍼티
     var audioRecorder: AVAudioRecorder?
@@ -32,8 +32,8 @@ class VoiceRecorderViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate 
     
     init(
         isDisplayRemoveVoiceRecorderAlert: Bool = false,
-        isDisplayErrorAlert: Bool = false,
-        errorAlertMessage: String = "",
+        isDisplayAlert: Bool = false,
+        alertMessage: String = "",
         isRecording: Bool = false,
         isPlaying: Bool = false,
         isPaused: Bool = false,
@@ -41,8 +41,8 @@ class VoiceRecorderViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate 
         recordedFiles: [URL] = []
     ) {
         self.isDisplayRemoveVoiceRecorderAlert = isDisplayRemoveVoiceRecorderAlert
-        self.isDisplayErrorAlert = isDisplayErrorAlert
-        self.errorAlertMessage = errorAlertMessage
+        self.isDisplayAlert = isDisplayAlert
+        self.alertMessage = alertMessage
         self.isRecording = isRecording
         self.isPlaying = isPlaying
         self.isPaused = isPaused
@@ -86,17 +86,17 @@ extension VoiceRecorderViewModel {
         isDisplayRemoveVoiceRecorderAlert = isDisplay
     }
     
-    private func setErrorAlertMessage(_ message: String) {
-        errorAlertMessage = message
+    private func setAlertMessage(_ message: String) {
+        alertMessage = message
     }
     
-    private func setIsDisplayErrorAlert(_ isDisplay: Bool) {
-        isDisplayErrorAlert = isDisplay
+    private func setIsDisplayAlert(_ isDisplay: Bool) {
+        isDisplayAlert = isDisplay
     }
     
     private func displayAlert(message: String) {
-        setErrorAlertMessage(message)
-        setIsDisplayErrorAlert(true)
+        setAlertMessage(message)
+        setIsDisplayAlert(true)
     }
 }
 

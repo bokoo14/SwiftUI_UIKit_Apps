@@ -28,6 +28,9 @@
 		3E5520A02B35A2140032FD79 /* MemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E55209F2B35A2140032FD79 /* MemoViewModel.swift */; };
 		3E5520A22B35A21F0032FD79 /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5520A12B35A21F0032FD79 /* MemoListView.swift */; };
 		3E5520A42B35A2310032FD79 /* MemoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5520A32B35A2310032FD79 /* MemoListViewModel.swift */; };
+		3E567E932B3C635B0062217F /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E567E922B3C635B0062217F /* Double+Extension.swift */; };
+		3E6C67D92B66CD5800AF3E77 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67D82B66CD5800AF3E77 /* Timer.swift */; };
+		3E6C67DB2B66CF9800AF3E77 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67DA2B66CF9800AF3E77 /* Int+Extension.swift */; };
 		3E7C3F4B2B30505D00293C4C /* VoiceMemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4A2B30505D00293C4C /* VoiceMemoAppApp.swift */; };
 		3E7C3F4D2B30505D00293C4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4C2B30505D00293C4C /* ContentView.swift */; };
 		3E7C3F4F2B30505E00293C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4E2B30505E00293C4C /* Assets.xcassets */; };
@@ -60,6 +63,10 @@
 		3E55209F2B35A2140032FD79 /* MemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewModel.swift; sourceTree = "<group>"; };
 		3E5520A12B35A21F0032FD79 /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
 		3E5520A32B35A2310032FD79 /* MemoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewModel.swift; sourceTree = "<group>"; };
+		3E567E922B3C635B0062217F /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		3E567E942B3C82710062217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3E6C67D82B66CD5800AF3E77 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		3E6C67DA2B66CF9800AF3E77 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		3E7C3F472B30505D00293C4C /* VoiceMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7C3F4A2B30505D00293C4C /* VoiceMemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMemoAppApp.swift; sourceTree = "<group>"; };
 		3E7C3F4C2B30505D00293C4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +102,8 @@
 			children = (
 				3E55206C2B3074680032FD79 /* Color+Extensions.swift */,
 				3E5520842B343C970032FD79 /* Date+Extension.swift */,
+				3E567E922B3C635B0062217F /* Double+Extension.swift */,
+				3E6C67DA2B66CF9800AF3E77 /* Int+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 		3E5520802B3421B50032FD79 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				3E6C67D82B66CD5800AF3E77 /* Timer.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -271,6 +281,7 @@
 		3E7C3F492B30505D00293C4C /* VoiceMemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				3E567E942B3C82710062217F /* Info.plist */,
 				3E7C3F5A2B306BC200293C4C /* App */,
 				3E55206A2B3074450032FD79 /* Core */,
 				3E5520862B3442D20032FD79 /* Component */,
@@ -401,8 +412,11 @@
 				3E55207A2B341D420032FD79 /* Path.swift in Sources */,
 				3E7C3F4D2B30505D00293C4C /* ContentView.swift in Sources */,
 				3E5520A02B35A2140032FD79 /* MemoViewModel.swift in Sources */,
+				3E6C67DB2B66CF9800AF3E77 /* Int+Extension.swift in Sources */,
+				3E567E932B3C635B0062217F /* Double+Extension.swift in Sources */,
 				3E5520752B307A5F0032FD79 /* OnboardingView.swift in Sources */,
 				3ECDC7972B3AFEDC006FC29A /* HomeViewModel.swift in Sources */,
+				3E6C67D92B66CD5800AF3E77 /* Timer.swift in Sources */,
 				3E7C3F4B2B30505D00293C4C /* VoiceMemoAppApp.swift in Sources */,
 				3E5520922B345C170032FD79 /* TodoView.swift in Sources */,
 				3E5520772B307A6E0032FD79 /* OnboardingViewModel.swift in Sources */,
@@ -543,7 +557,9 @@
 				DEVELOPMENT_TEAM = GZMCL5Q7N2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VoiceMemoApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "녹음을 위해 사용합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -575,7 +591,9 @@
 				DEVELOPMENT_TEAM = GZMCL5Q7N2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VoiceMemoApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "녹음을 위해 사용합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -29,10 +29,13 @@
 		3E5520A22B35A21F0032FD79 /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5520A12B35A21F0032FD79 /* MemoListView.swift */; };
 		3E5520A42B35A2310032FD79 /* MemoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5520A32B35A2310032FD79 /* MemoListViewModel.swift */; };
 		3E567E932B3C635B0062217F /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E567E922B3C635B0062217F /* Double+Extension.swift */; };
-		3E6C67D92B66CD5800AF3E77 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67D82B66CD5800AF3E77 /* Timer.swift */; };
+		3E6C67D92B66CD5800AF3E77 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67D82B66CD5800AF3E77 /* Time.swift */; };
 		3E6C67DB2B66CF9800AF3E77 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67DA2B66CF9800AF3E77 /* Int+Extension.swift */; };
+		3E6C67DE2B6793DE00AF3E77 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67DD2B6793DE00AF3E77 /* TimerView.swift */; };
+		3E6C67E02B6793E600AF3E77 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67DF2B6793E600AF3E77 /* TimerViewModel.swift */; };
+		3E6C67E32B67C7F300AF3E77 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67E22B67C7F300AF3E77 /* NotificationService.swift */; };
+		3E6C67E62B67D60600AF3E77 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67E52B67D60600AF3E77 /* SettingView.swift */; };
 		3E7C3F4B2B30505D00293C4C /* VoiceMemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4A2B30505D00293C4C /* VoiceMemoAppApp.swift */; };
-		3E7C3F4D2B30505D00293C4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4C2B30505D00293C4C /* ContentView.swift */; };
 		3E7C3F4F2B30505E00293C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4E2B30505E00293C4C /* Assets.xcassets */; };
 		3E7C3F522B30505E00293C4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7C3F512B30505E00293C4C /* Preview Assets.xcassets */; };
 		3E7C3F5C2B306BD700293C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C3F5B2B306BD700293C4C /* AppDelegate.swift */; };
@@ -65,11 +68,14 @@
 		3E5520A32B35A2310032FD79 /* MemoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewModel.swift; sourceTree = "<group>"; };
 		3E567E922B3C635B0062217F /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		3E567E942B3C82710062217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		3E6C67D82B66CD5800AF3E77 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		3E6C67D82B66CD5800AF3E77 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		3E6C67DA2B66CF9800AF3E77 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		3E6C67DD2B6793DE00AF3E77 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		3E6C67DF2B6793E600AF3E77 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		3E6C67E22B67C7F300AF3E77 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		3E6C67E52B67D60600AF3E77 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		3E7C3F472B30505D00293C4C /* VoiceMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7C3F4A2B30505D00293C4C /* VoiceMemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMemoAppApp.swift; sourceTree = "<group>"; };
-		3E7C3F4C2B30505D00293C4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3E7C3F4E2B30505E00293C4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E7C3F512B30505E00293C4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3E7C3F5B2B306BD700293C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 		3E55206A2B3074450032FD79 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3E6C67E12B67C7D500AF3E77 /* Service */,
 				3E55206B2B3074540032FD79 /* Extension */,
 			);
 			path = Core;
@@ -182,7 +189,7 @@
 		3E5520802B3421B50032FD79 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				3E6C67D82B66CD5800AF3E77 /* Timer.swift */,
+				3E6C67D82B66CD5800AF3E77 /* Time.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -195,6 +202,8 @@
 				3E55208F2B345BDE0032FD79 /* TodoList */,
 				3E55209B2B35A1AA0032FD79 /* MemoList */,
 				3ECDC7952B3AFE72006FC29A /* VoceRecorder */,
+				3E6C67DC2B6793C100AF3E77 /* Timer */,
+				3E6C67E42B67D55C00AF3E77 /* Setting */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -262,6 +271,31 @@
 			path = Memo;
 			sourceTree = "<group>";
 		};
+		3E6C67DC2B6793C100AF3E77 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C67DD2B6793DE00AF3E77 /* TimerView.swift */,
+				3E6C67DF2B6793E600AF3E77 /* TimerViewModel.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		3E6C67E12B67C7D500AF3E77 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C67E22B67C7F300AF3E77 /* NotificationService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3E6C67E42B67D55C00AF3E77 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C67E52B67D60600AF3E77 /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		3E7C3F3E2B30505D00293C4C = {
 			isa = PBXGroup;
 			children = (
@@ -287,7 +321,6 @@
 				3E5520862B3442D20032FD79 /* Component */,
 				3E5520722B307A430032FD79 /* Feature */,
 				3E55206E2B3075490032FD79 /* Model */,
-				3E7C3F4C2B30505D00293C4C /* ContentView.swift */,
 				3E7C3F4E2B30505E00293C4C /* Assets.xcassets */,
 				3E7C3F502B30505E00293C4C /* Preview Content */,
 			);
@@ -392,12 +425,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E6C67DE2B6793DE00AF3E77 /* TimerView.swift in Sources */,
 				3E5520942B345C270032FD79 /* TodoViewModel.swift in Sources */,
 				3E55208A2B3443120032FD79 /* CustomNavigationBar.swift in Sources */,
 				3E5520A22B35A21F0032FD79 /* MemoListView.swift in Sources */,
 				3ECDC7992B3AFEF1006FC29A /* VoiceRecorderView.swift in Sources */,
+				3E6C67E62B67D60600AF3E77 /* SettingView.swift in Sources */,
 				3E7C3F5C2B306BD700293C4C /* AppDelegate.swift in Sources */,
 				3E5520852B343C970032FD79 /* Date+Extension.swift in Sources */,
+				3E6C67E32B67C7F300AF3E77 /* NotificationService.swift in Sources */,
 				3E5520982B345C450032FD79 /* TodoListViewModel.swift in Sources */,
 				3E5520A42B35A2310032FD79 /* MemoListViewModel.swift in Sources */,
 				3E5520712B3075670032FD79 /* OnboardingContent.swift in Sources */,
@@ -410,16 +446,16 @@
 				3E55208E2B345AB60032FD79 /* Todo.swift in Sources */,
 				3E55209A2B35A13D0032FD79 /* Memo.swift in Sources */,
 				3E55207A2B341D420032FD79 /* Path.swift in Sources */,
-				3E7C3F4D2B30505D00293C4C /* ContentView.swift in Sources */,
 				3E5520A02B35A2140032FD79 /* MemoViewModel.swift in Sources */,
 				3E6C67DB2B66CF9800AF3E77 /* Int+Extension.swift in Sources */,
 				3E567E932B3C635B0062217F /* Double+Extension.swift in Sources */,
 				3E5520752B307A5F0032FD79 /* OnboardingView.swift in Sources */,
 				3ECDC7972B3AFEDC006FC29A /* HomeViewModel.swift in Sources */,
-				3E6C67D92B66CD5800AF3E77 /* Timer.swift in Sources */,
+				3E6C67D92B66CD5800AF3E77 /* Time.swift in Sources */,
 				3E7C3F4B2B30505D00293C4C /* VoiceMemoAppApp.swift in Sources */,
 				3E5520922B345C170032FD79 /* TodoView.swift in Sources */,
 				3E5520772B307A6E0032FD79 /* OnboardingViewModel.swift in Sources */,
+				3E6C67E02B6793E600AF3E77 /* TimerViewModel.swift in Sources */,
 				3E55206D2B3074680032FD79 /* Color+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,6 +35,7 @@
 		3E6C67E02B6793E600AF3E77 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67DF2B6793E600AF3E77 /* TimerViewModel.swift */; };
 		3E6C67E32B67C7F300AF3E77 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67E22B67C7F300AF3E77 /* NotificationService.swift */; };
 		3E6C67E62B67D60600AF3E77 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67E52B67D60600AF3E77 /* SettingView.swift */; };
+		3E6C67E82B68140600AF3E77 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67E72B68140600AF3E77 /* Tab.swift */; };
 		3E7C3F4B2B30505D00293C4C /* VoiceMemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4A2B30505D00293C4C /* VoiceMemoAppApp.swift */; };
 		3E7C3F4F2B30505E00293C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4E2B30505E00293C4C /* Assets.xcassets */; };
 		3E7C3F522B30505E00293C4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7C3F512B30505E00293C4C /* Preview Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		3E6C67DF2B6793E600AF3E77 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		3E6C67E22B67C7F300AF3E77 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		3E6C67E52B67D60600AF3E77 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		3E6C67E72B68140600AF3E77 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		3E7C3F472B30505D00293C4C /* VoiceMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7C3F4A2B30505D00293C4C /* VoiceMemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMemoAppApp.swift; sourceTree = "<group>"; };
 		3E7C3F4E2B30505E00293C4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		3E55207D2B34219B0032FD79 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3E6C67E72B68140600AF3E77 /* Tab.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				3E5520752B307A5F0032FD79 /* OnboardingView.swift in Sources */,
 				3ECDC7972B3AFEDC006FC29A /* HomeViewModel.swift in Sources */,
 				3E6C67D92B66CD5800AF3E77 /* Time.swift in Sources */,
+				3E6C67E82B68140600AF3E77 /* Tab.swift in Sources */,
 				3E7C3F4B2B30505D00293C4C /* VoiceMemoAppApp.swift in Sources */,
 				3E5520922B345C170032FD79 /* TodoView.swift in Sources */,
 				3E5520772B307A6E0032FD79 /* OnboardingViewModel.swift in Sources */,

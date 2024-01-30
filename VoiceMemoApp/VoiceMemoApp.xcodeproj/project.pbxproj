@@ -36,6 +36,7 @@
 		3E6C67E32B67C7F300AF3E77 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67E22B67C7F300AF3E77 /* NotificationService.swift */; };
 		3E6C67E62B67D60600AF3E77 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67E52B67D60600AF3E77 /* SettingView.swift */; };
 		3E6C67E82B68140600AF3E77 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67E72B68140600AF3E77 /* Tab.swift */; };
+		3E6C67EE2B6925D700AF3E77 /* WriteBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C67ED2B6925D700AF3E77 /* WriteBtn.swift */; };
 		3E7C3F4B2B30505D00293C4C /* VoiceMemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4A2B30505D00293C4C /* VoiceMemoAppApp.swift */; };
 		3E7C3F4F2B30505E00293C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7C3F4E2B30505E00293C4C /* Assets.xcassets */; };
 		3E7C3F522B30505E00293C4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7C3F512B30505E00293C4C /* Preview Assets.xcassets */; };
@@ -76,6 +77,7 @@
 		3E6C67E22B67C7F300AF3E77 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		3E6C67E52B67D60600AF3E77 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		3E6C67E72B68140600AF3E77 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		3E6C67ED2B6925D700AF3E77 /* WriteBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteBtn.swift; sourceTree = "<group>"; };
 		3E7C3F472B30505D00293C4C /* VoiceMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7C3F4A2B30505D00293C4C /* VoiceMemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMemoAppApp.swift; sourceTree = "<group>"; };
 		3E7C3F4E2B30505E00293C4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		3E5520872B3442EB0032FD79 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				3E6C67ED2B6925D700AF3E77 /* WriteBtn.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				3E5520852B343C970032FD79 /* Date+Extension.swift in Sources */,
 				3E6C67E32B67C7F300AF3E77 /* NotificationService.swift in Sources */,
 				3E5520982B345C450032FD79 /* TodoListViewModel.swift in Sources */,
+				3E6C67EE2B6925D700AF3E77 /* WriteBtn.swift in Sources */,
 				3E5520A42B35A2310032FD79 /* MemoListViewModel.swift in Sources */,
 				3E5520712B3075670032FD79 /* OnboardingContent.swift in Sources */,
 				3ECDC79B2B3AFEFD006FC29A /* VoiceRecorderViewModel.swift in Sources */,

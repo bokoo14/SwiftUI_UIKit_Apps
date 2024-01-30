@@ -13,39 +13,35 @@ struct TodoListView: View {
     @EnvironmentObject private var homeViewModel: HomeViewModel
     
     var body: some View {
-        ZStack {
-            // todo cell list
-            VStack(spacing: 0) {
-                // 상단의 CustomNavigationBar
-                if !todoListViewModel.todos.isEmpty {
-                    CustomNavigationBar(
-                        isDisplayLeftBtn: false,
-                        rightBtnAction: {
-                            todoListViewModel.navigationRightBtnTapped()
-                        },
-                        rightBtnType: todoListViewModel.navigationBarRightBtnMode
-                    )
-                } else {
-                    Spacer()
-                        .frame(height: 30)
-                }
-                
-                
-                TitleView()
-                if todoListViewModel.todos.isEmpty {
-                    AnnouncementView()
-                } else {
-                    TodoListContentView()
-                }
-                
-                
-            } // VStack
+        // todo cell list
+        VStack(spacing: 0) {
+            // 상단의 CustomNavigationBar
+            if !todoListViewModel.todos.isEmpty {
+                CustomNavigationBar(
+                    isDisplayLeftBtn: false,
+                    rightBtnAction: {
+                        todoListViewModel.navigationRightBtnTapped()
+                    },
+                    rightBtnType: todoListViewModel.navigationBarRightBtnMode
+                )
+            } else {
+                Spacer()
+                    .frame(height: 30)
+            }
             
-            WriteTodoBtnView()
-                .padding(.trailing, 20)
-                .padding(.bottom, 50)
-        } // ZStack
-        .alert(LocalizedStringKey(stringLiteral: "To do list \(todoListViewModel.removeTodosCount)개 삭제하시겠습니까?"), 
+            
+            TitleView()
+            if todoListViewModel.todos.isEmpty {
+                AnnouncementView()
+            } else {
+                TodoListContentView()
+            }
+        } // VStack
+        // WriteBtn 모디파이어 2️⃣
+        .writeBtn(perform: {
+            pathModel.paths.append(.todoView)
+        })
+        .alert(LocalizedStringKey(stringLiteral: "To do list \(todoListViewModel.removeTodosCount)개 삭제하시겠습니까?"),
                isPresented: $todoListViewModel.isDisplayRemoveTodoAlert,
                actions: {
             Button(role: .destructive) { todoListViewModel.removeBtnTapped() } label: { Text("삭제") }

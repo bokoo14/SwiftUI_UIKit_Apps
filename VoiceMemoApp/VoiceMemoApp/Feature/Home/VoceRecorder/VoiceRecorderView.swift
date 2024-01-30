@@ -297,6 +297,8 @@ private struct RecordBtnView: View {
                 })
             } // HStack
         } // VStack
+        .padding(.trailing, 20)
+        .padding(.bottom, 50)
     }
 }
 

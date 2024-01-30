@@ -13,36 +13,35 @@ struct MemoListView: View {
     @EnvironmentObject private var homeViewModel: HomeViewModel
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                if !memoListViewModel.memos.isEmpty {
-                    CustomNavigationBar(
-                        isDisplayLeftBtn: false,
-                        rightBtnAction: {
-                            memoListViewModel.navigationRightBtnTapped()
-                        },
-                        rightBtnType: memoListViewModel.navigationBarRightBtnMode
-                    )
-                } else {
-                    Spacer()
-                        .frame(height: 30)
-                }
-                
-                TitleView()
-                    .padding(.top, 20)
-                
-                if memoListViewModel.memos.isEmpty {
-                    AnnouncementView()
-                } else {
-                    MemoListContentView()
-                        .padding(.top, 20)
-                        .padding(.bottom, 50)
-                }
-            } // VStack
+        VStack(spacing: 0) {
+            if !memoListViewModel.memos.isEmpty {
+                CustomNavigationBar(
+                    isDisplayLeftBtn: false,
+                    rightBtnAction: {
+                        memoListViewModel.navigationRightBtnTapped()
+                    },
+                    rightBtnType: memoListViewModel.navigationBarRightBtnMode
+                )
+            } else {
+                Spacer()
+                    .frame(height: 30)
+            }
             
-            WriteMemoBtnView()
-                .padding(.trailing, 20)
-        } // ZStack
+            TitleView()
+                .padding(.top, 20)
+            
+            if memoListViewModel.memos.isEmpty {
+                AnnouncementView()
+            } else {
+                MemoListContentView()
+                    .padding(.top, 20)
+                    .padding(.bottom, 50)
+            }
+        } // VStack
+        // WriteBtn 모디파이어 1️⃣
+        .modifier(WriteBtnViewModifier(action: {
+            pathModel.paths.append(.memoView(isCreateMode: true, memo: nil))
+        }))
         .alert(
             LocalizedStringKey(stringLiteral: "메모 \(memoListViewModel.removeMemoCount)개 삭제하시겠습니까?"),
             isPresented: $memoListViewModel.isDisplayRemoveMemoAlert
@@ -174,12 +173,12 @@ private struct MemoCellView: View {
                         .fill(.customGray0)
                         .frame(height: 1)
                 } // VStack
-        })
+            })
     }
 }
 
 
-// MARK: 메모 작성 버튼 뷰
+// MARK: 메모 작성 버튼 뷰 (삭제)
 private struct WriteMemoBtnView: View {
     @EnvironmentObject private var pathModel: PathModel
     

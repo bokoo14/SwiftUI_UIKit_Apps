@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VoiceRecorderView: View {
     @StateObject private var voiceRecorderViewModel = VoiceRecorderViewModel()
+    @EnvironmentObject private var homeViewModel: HomeViewModel
     
     var body: some View {
         ZStack {
@@ -42,8 +43,11 @@ struct VoiceRecorderView: View {
         ) {
             Button("확인", role: .cancel) {
             }
-        }
-        
+        } // alert
+        // recordedFiles의 값이 변경될때마다 개수를 받아와서 업데이트
+        .onChange(of: voiceRecorderViewModel.recordedFiles) { recordedFiles in
+            homeViewModel.setVoiceRecordersCount(recordedFiles.count)
+        } // onChange
     }
 }
 

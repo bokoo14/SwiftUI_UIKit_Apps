@@ -10,6 +10,7 @@ import SwiftUI
 struct TodoListView: View {
     @EnvironmentObject private var pathModel: PathModel
     @EnvironmentObject private var todoListViewModel: TodoListViewModel
+    @EnvironmentObject private var homeViewModel: HomeViewModel
     
     var body: some View {
         ZStack {
@@ -31,17 +32,14 @@ struct TodoListView: View {
                 
                 
                 TitleView()
-                    .border(.purple)
                 if todoListViewModel.todos.isEmpty {
                     AnnouncementView()
-                        .border(.cyan)
                 } else {
                     TodoListContentView()
                 }
                 
                 
             } // VStack
-            .border(.green)
             
             WriteTodoBtnView()
                 .padding(.trailing, 20)
@@ -52,7 +50,11 @@ struct TodoListView: View {
                actions: {
             Button(role: .destructive) { todoListViewModel.removeBtnTapped() } label: { Text("삭제") }
             Button(role: .cancel) { } label: { Text("취소") }
-        }, message: { })
+        }, message: { }) // alert
+        // todo의 값이 변경될때마다 개수를 받아와서 업데이트
+        .onChange(of: todoListViewModel.todos) { todos in
+            homeViewModel.setTodosCount(todos.count)
+        } // onChange
     }
 }
 
@@ -71,7 +73,6 @@ private struct TitleView: View {
         } // HStack
         .font(.system(size: 30, weight: .bold))
         .padding(.horizontal, 30)
-        .border(.red)
     }
 }
 
@@ -82,9 +83,7 @@ private struct AnnouncementView: View {
             Spacer()
             Image("pencil")
                 .renderingMode(.template)
-                .border(.red)
                 .frame(width: 80, height: 48)
-                .border(.red)
             Text("\"매일 아침 5시 운동가라고 알려줘\"\n\"내일 8시 수강 신청하라고 알려줘\"\n\"1tl 반 점심약속 리마인드 해줘\"")
                 .lineSpacing(8.0)
                 .multilineTextAlignment(.center)

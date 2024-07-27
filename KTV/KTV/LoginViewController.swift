@@ -24,7 +24,8 @@ class LoginViewController: UIViewController {
 
 
     @IBAction func buttonDidTap(_ sender: Any) {
+        // window의 루트뷰를 tabbar로 변경
+        self.view.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "tabbar")
     }
-    
 }
 

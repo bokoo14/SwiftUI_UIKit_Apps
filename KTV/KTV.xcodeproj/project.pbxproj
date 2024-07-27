@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E3522F02C54E0970015CCE0 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E3522EF2C54E0970015CCE0 /* Color.xcassets */; };
 		3EDF92602BFE30A500FC19DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF925F2BFE30A500FC19DE /* AppDelegate.swift */; };
 		3EDF92622BFE30A500FC19DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF92612BFE30A500FC19DE /* SceneDelegate.swift */; };
-		3EDF92642BFE30A500FC19DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF92632BFE30A500FC19DE /* ViewController.swift */; };
+		3EDF92642BFE30A500FC19DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF92632BFE30A500FC19DE /* LoginViewController.swift */; };
 		3EDF92672BFE30A500FC19DE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF92662BFE30A500FC19DE /* Base */; };
 		3EDF92692BFE30A600FC19DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF92682BFE30A600FC19DE /* Assets.xcassets */; };
 		3EDF926C2BFE30A600FC19DE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF926B2BFE30A600FC19DE /* Base */; };
@@ -36,10 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E3522EF2C54E0970015CCE0 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		3EDF925C2BFE30A500FC19DE /* KTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDF925F2BFE30A500FC19DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EDF92612BFE30A500FC19DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3EDF92632BFE30A500FC19DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3EDF92632BFE30A500FC19DE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EDF92662BFE30A500FC19DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EDF92682BFE30A600FC19DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EDF926B2BFE30A600FC19DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,8 +103,9 @@
 			children = (
 				3EDF925F2BFE30A500FC19DE /* AppDelegate.swift */,
 				3EDF92612BFE30A500FC19DE /* SceneDelegate.swift */,
-				3EDF92632BFE30A500FC19DE /* ViewController.swift */,
+				3EDF92632BFE30A500FC19DE /* LoginViewController.swift */,
 				3EDF92652BFE30A500FC19DE /* Main.storyboard */,
+				3E3522EF2C54E0970015CCE0 /* Color.xcassets */,
 				3EDF92682BFE30A600FC19DE /* Assets.xcassets */,
 				3EDF926A2BFE30A600FC19DE /* LaunchScreen.storyboard */,
 				3EDF926D2BFE30A600FC19DE /* Info.plist */,
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EDF92692BFE30A600FC19DE /* Assets.xcassets in Resources */,
+				3E3522F02C54E0970015CCE0 /* Color.xcassets in Resources */,
 				3EDF926C2BFE30A600FC19DE /* Base in Resources */,
 				3EDF92672BFE30A500FC19DE /* Base in Resources */,
 			);
@@ -258,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EDF92642BFE30A500FC19DE /* ViewController.swift in Sources */,
+				3EDF92642BFE30A500FC19DE /* LoginViewController.swift in Sources */,
 				3EDF92602BFE30A500FC19DE /* AppDelegate.swift in Sources */,
 				3EDF92622BFE30A500FC19DE /* SceneDelegate.swift in Sources */,
 			);

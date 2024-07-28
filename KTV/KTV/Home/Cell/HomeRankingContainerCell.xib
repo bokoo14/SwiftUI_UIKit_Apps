@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="333" id="VGf-OE-NAf" customClass="HomeRankingContainerCell" customModule="KTV" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="349"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VGf-OE-NAf" id="H7b-ki-3jg">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="349"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJX-1O-tf1">
+                        <rect key="frame" x="0.0" y="0.0" width="384" height="328"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="랭킹 리스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9w5-WT-efn">
+                                <rect key="frame" x="21" y="21" width="82.333333333333329" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" name="main-wh"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NP8-Vg-FkX">
+                                <rect key="frame" x="0.0" y="63" width="384" height="265"/>
+                                <color key="backgroundColor" name="bg"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="20" id="TIW-29-Tz0">
+                                    <size key="itemSize" width="130" height="230"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="21" minY="21" maxX="21" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="bg"/>
+                        <constraints>
+                            <constraint firstItem="NP8-Vg-FkX" firstAttribute="top" secondItem="9w5-WT-efn" secondAttribute="bottom" constant="21" id="3We-lc-7ux"/>
+                            <constraint firstAttribute="bottom" secondItem="NP8-Vg-FkX" secondAttribute="bottom" id="IBV-pD-SL4"/>
+                            <constraint firstItem="9w5-WT-efn" firstAttribute="top" secondItem="TJX-1O-tf1" secondAttribute="top" constant="21" id="f2a-jK-Zrr"/>
+                            <constraint firstItem="NP8-Vg-FkX" firstAttribute="leading" secondItem="TJX-1O-tf1" secondAttribute="leading" id="l12-l3-PvL"/>
+                            <constraint firstItem="9w5-WT-efn" firstAttribute="leading" secondItem="TJX-1O-tf1" secondAttribute="leading" constant="21" id="mUw-Gn-Iwf"/>
+                            <constraint firstAttribute="trailing" secondItem="NP8-Vg-FkX" secondAttribute="trailing" id="xka-c5-2zn"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="bg"/>
+                <constraints>
+                    <constraint firstItem="TJX-1O-tf1" firstAttribute="top" secondItem="H7b-ki-3jg" secondAttribute="top" id="2lp-p2-jmW"/>
+                    <constraint firstItem="TJX-1O-tf1" firstAttribute="leading" secondItem="H7b-ki-3jg" secondAttribute="leading" id="UqA-ao-yyj"/>
+                    <constraint firstAttribute="bottom" secondItem="TJX-1O-tf1" secondAttribute="bottom" constant="21" id="puN-7m-bff"/>
+                    <constraint firstAttribute="trailing" secondItem="TJX-1O-tf1" secondAttribute="trailing" id="wKp-iL-LZL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="BqG-gv-Spu"/>
+            <connections>
+                <outlet property="collectionView" destination="NP8-Vg-FkX" id="rvF-bm-8Dv"/>
+            </connections>
+            <point key="canvasLocation" x="137" y="63"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="bg">
+            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="main-wh">
+            <color red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

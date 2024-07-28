@@ -22,19 +22,25 @@ class HomeViewController: UIViewController {
 
     func setupTableView() {
         self.tableView.register(
-            UINib(nibName: "HomeHeaderCell", bundle: .main),
+            UINib(nibName: HomeHeaderCell.identifier, bundle: .main),
             forCellReuseIdentifier: HomeHeaderCell.identifier
         )
         self.tableView.register(
-            UINib(nibName: "HomeVideoCell", bundle: .main),
+            UINib(nibName: HomeVideoCell.identifier, bundle: .main),
             forCellReuseIdentifier: HomeVideoCell.identifier
         )
         self.tableView.register(
-            UINib(nibName: "HomeRecommendContainerCell", bundle: .main),
+            UINib(nibName: HomeRankingContainerCell.identifier, bundle: .main),
+            forCellReuseIdentifier: HomeRankingContainerCell.identifier)
+        self.tableView.register(
+            UINib(nibName: HomeRecentWatchContainerCell.identifier, bundle: .main),
+            forCellReuseIdentifier: HomeRecentWatchContainerCell.identifier)
+        self.tableView.register(
+            UINib(nibName: HomeRecommendContainerCell.identifier, bundle: .main),
             forCellReuseIdentifier: HomeRecommendContainerCell.identifier
         )
         self.tableView.register(
-            UINib(nibName: "HomeFooterCell", bundle: .main),
+            UINib(nibName: HomeFooterCell.identifier, bundle: .main),
             forCellReuseIdentifier: HomeFooterCell.identifier
         )
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "empty")
@@ -62,6 +68,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         case .video:
             return 2
+        case .ranking:
+            return 1
+        case .recentWatch:
+            return 1
         case .recommend:
             return 1
         case .footer:
@@ -79,6 +89,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return HomeHeaderCell.height
         case .video:
             return HomeVideoCell.height
+        case .ranking:
+            return HomeRankingContainerCell.height
+        case .recentWatch:
+            return HomeRecentWatchContainerCell.height
         case .recommend:
             return HomeRecommendContainerCell.height
         case .footer:
@@ -103,6 +117,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 withIdentifier: HomeVideoCell.identifier,
                 for: indexPath
             )
+        case .ranking:
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: HomeRankingContainerCell.identifier,
+                for: indexPath
+            )
+            (cell as? HomeRankingContainerCell)?.delegate = self
+            return cell
+        case .recentWatch:
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: HomeRecentWatchContainerCell.identifier,
+                for: indexPath
+            )
+            (cell as? HomeRecentWatchContainerCell)?.delegate = self
+            return cell
         case .recommend:
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: HomeRecommendContainerCell.identifier,
@@ -127,5 +155,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: HomeRecommendContainerCellDelegate {
     func homeRecommendContainerCell(_ cell: HomeRecommendContainerCell, didSelectItemAt index: Int) {
         print("home recommend cell did select item at \(index)")
+    }
+}
+
+extension HomeViewController: HomeRankingContainerCellDelegate {
+    func homeRankingContainerCell(_ cell: HomeRankingContainerCell, didSelectItemAt index: Int) {
+        print("home ranking did select at \(index)")
+    }
+}
+
+extension HomeViewController: HomeRecentWatchContainerCellDelegate {
+    func homeRecentWatchContainerCell(_ cell: HomeRecentWatchContainerCell, didSelectItemAt index: Int) {
+        print("home recent watch did select at \(index)")
     }
 }

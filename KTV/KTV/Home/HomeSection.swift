@@ -10,5 +10,8 @@ import Foundation
 
 // TableView에서 section이 추가될때마다 case를 추가해주면 된다.
 enum HomeSection: Int, CaseIterable {
+    case header
     case video
+    case recommend
+    case footer
 }

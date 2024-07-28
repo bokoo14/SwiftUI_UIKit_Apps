@@ -1,5 +1,5 @@
 //
-//  HomeHeaderCell.swift
+//  HomeFooterCell.swift
 //  KTV
 //
 //  Created by Bokyung on 7/28/24.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class HomeHeaderCell: UITableViewCell {
+class HomeFooterCell: UITableViewCell {
 
-    static let height: CGFloat = 66
-    static let identifier: String = "HomeHeaderCell"
-    
+    static let height: CGFloat = 80
+    static let identifier: String = "HomeFooterCell"
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

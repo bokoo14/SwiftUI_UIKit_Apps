@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    private let homeViewModel: HomeViewModel = .init()
 
     // status bar 색상 변경
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
@@ -20,12 +21,25 @@ class HomeViewController: UIViewController {
     }
 
     func setupTableView() {
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
         self.tableView.register(
-            UINib(nibName: HomeVideoCell.identifier, bundle: nil),
+            UINib(nibName: "HomeHeaderCell", bundle: .main),
+            forCellReuseIdentifier: HomeHeaderCell.identifier
+        )
+        self.tableView.register(
+            UINib(nibName: "HomeVideoCell", bundle: .main),
             forCellReuseIdentifier: HomeVideoCell.identifier
         )
+        self.tableView.register(
+            UINib(nibName: "HomeRecommendContainerCell", bundle: .main),
+            forCellReuseIdentifier: HomeRecommendContainerCell.identifier
+        )
+        self.tableView.register(
+            UINib(nibName: "HomeFooterCell", bundle: .main),
+            forCellReuseIdentifier: HomeFooterCell.identifier
+        )
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "empty")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
 }
 
@@ -43,22 +57,75 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let section = HomeSection(rawValue: section) else {
             return 0
         }
-
         switch section {
+        case .header:
+            return 1
         case .video:
             return 2
+        case .recommend:
+            return 1
+        case .footer:
+            return 1
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let section = HomeSection(rawValue: indexPath.section) else {
+            return 0
+        }
+
+        switch section {
+        case .header:
+            return HomeHeaderCell.height
+        case .video:
+            return HomeVideoCell.height
+        case .recommend:
+            return HomeRecommendItemCell.height
+        case .footer:
+            return HomeFooterCell.height
         }
     }
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = HomeSection(rawValue: indexPath.section) else {
-            return UITableViewCell()
+            return tableView.dequeueReusableCell(withIdentifier: "empty", for: indexPath)
         }
 
         switch section {
+        case .header:
+            return tableView.dequeueReusableCell(
+                withIdentifier: HomeHeaderCell.identifier,
+                for: indexPath
+            )
         case .video:
-            return tableView.dequeueReusableCell(withIdentifier: HomeVideoCell.identifier, for: indexPath)
+            return tableView.dequeueReusableCell(
+                withIdentifier: HomeVideoCell.identifier,
+                for: indexPath
+            )
+        case .recommend:
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: HomeRecommendContainerCell.identifier,
+                for: indexPath
+            )
+            (cell as? HomeRecommendContainerCell)?.delegate = self
+            return cell
+        case .footer:
+            return tableView.dequeueReusableCell(
+                withIdentifier: HomeFooterCell.identifier,
+                for: indexPath
+            )
+
         }
+    }
+}
+
+/**
+ 위임자(Delegator): HomeRecommendContainerCell 클래스. 이 클래스는 테이블 뷰 셀에서 선택 이벤트가 발생할 때 delegate에게 이를 알리는 역할을 한다.
+ 위임받는자(Delegate): HomeRecommendContainerCellDelegate 프로토콜을 준수하는 외부 객체. 일반적으로 뷰 컨트롤러가 이 역할을 수행한다.
+ */
+extension HomeViewController: HomeRecommendContainerCellDelegate {
+    func homeRecommendContainerCell(_ cell: HomeRecommendContainerCell, didSelectItemAt index: Int) {
+        print("home recommend cell did select item at \(index)")
     }
 }

@@ -80,7 +80,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .video:
             return HomeVideoCell.height
         case .recommend:
-            return HomeRecommendItemCell.height
+            return HomeRecommendContainerCell.height
         case .footer:
             return HomeFooterCell.height
         }

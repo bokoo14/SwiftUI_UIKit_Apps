@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E1906842C55FB8100494E62 /* HomeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1906832C55FB8100494E62 /* HomeHeaderCell.xib */; };
+		3E1906852C55FB8100494E62 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1906822C55FB8100494E62 /* HomeHeaderCell.swift */; };
 		3E3522F02C54E0970015CCE0 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E3522EF2C54E0970015CCE0 /* Color.xcassets */; };
+		3E9835E42C54EED9008B2351 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9835E32C54EED9008B2351 /* HomeViewController.swift */; };
+		3E9835E82C54F082008B2351 /* HomeVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E9835E72C54F082008B2351 /* HomeVideoCell.xib */; };
+		3E9835E92C54F082008B2351 /* HomeVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9835E62C54F082008B2351 /* HomeVideoCell.swift */; };
+		3E9835EC2C551672008B2351 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9835EB2C551672008B2351 /* HomeSection.swift */; };
+		3E9835F02C552791008B2351 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9835EF2C552791008B2351 /* TabBarController.swift */; };
 		3EDF92602BFE30A500FC19DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF925F2BFE30A500FC19DE /* AppDelegate.swift */; };
 		3EDF92622BFE30A500FC19DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF92612BFE30A500FC19DE /* SceneDelegate.swift */; };
 		3EDF92642BFE30A500FC19DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF92632BFE30A500FC19DE /* LoginViewController.swift */; };
@@ -37,7 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E1906822C55FB8100494E62 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
+		3E1906832C55FB8100494E62 /* HomeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderCell.xib; sourceTree = "<group>"; };
 		3E3522EF2C54E0970015CCE0 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		3E9835E32C54EED9008B2351 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3E9835E62C54F082008B2351 /* HomeVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVideoCell.swift; sourceTree = "<group>"; };
+		3E9835E72C54F082008B2351 /* HomeVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVideoCell.xib; sourceTree = "<group>"; };
+		3E9835EB2C551672008B2351 /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
+		3E9835EF2C552791008B2351 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3EDF925C2BFE30A500FC19DE /* KTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDF925F2BFE30A500FC19DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EDF92612BFE30A500FC19DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +92,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E9835E22C54EE85008B2351 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3E9835E52C54F022008B2351 /* Cell */,
+				3E9835E32C54EED9008B2351 /* HomeViewController.swift */,
+				3E9835EB2C551672008B2351 /* HomeSection.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3E9835E52C54F022008B2351 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3E9835E62C54F082008B2351 /* HomeVideoCell.swift */,
+				3E9835E72C54F082008B2351 /* HomeVideoCell.xib */,
+				3E1906822C55FB8100494E62 /* HomeHeaderCell.swift */,
+				3E1906832C55FB8100494E62 /* HomeHeaderCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3E9835EA2C550F50008B2351 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3EDF92632BFE30A500FC19DE /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		3EDF92532BFE30A500FC19DE = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +144,11 @@
 		3EDF925E2BFE30A500FC19DE /* KTV */ = {
 			isa = PBXGroup;
 			children = (
+				3E9835EF2C552791008B2351 /* TabBarController.swift */,
+				3E9835EA2C550F50008B2351 /* Login */,
+				3E9835E22C54EE85008B2351 /* Home */,
 				3EDF925F2BFE30A500FC19DE /* AppDelegate.swift */,
 				3EDF92612BFE30A500FC19DE /* SceneDelegate.swift */,
-				3EDF92632BFE30A500FC19DE /* LoginViewController.swift */,
 				3EDF92652BFE30A500FC19DE /* Main.storyboard */,
 				3E3522EF2C54E0970015CCE0 /* Color.xcassets */,
 				3EDF92682BFE30A600FC19DE /* Assets.xcassets */,
@@ -237,7 +282,9 @@
 				3EDF92692BFE30A600FC19DE /* Assets.xcassets in Resources */,
 				3E3522F02C54E0970015CCE0 /* Color.xcassets in Resources */,
 				3EDF926C2BFE30A600FC19DE /* Base in Resources */,
+				3E9835E82C54F082008B2351 /* HomeVideoCell.xib in Resources */,
 				3EDF92672BFE30A500FC19DE /* Base in Resources */,
+				3E1906842C55FB8100494E62 /* HomeHeaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +310,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EDF92642BFE30A500FC19DE /* LoginViewController.swift in Sources */,
+				3E1906852C55FB8100494E62 /* HomeHeaderCell.swift in Sources */,
 				3EDF92602BFE30A500FC19DE /* AppDelegate.swift in Sources */,
+				3E9835EC2C551672008B2351 /* HomeSection.swift in Sources */,
 				3EDF92622BFE30A500FC19DE /* SceneDelegate.swift in Sources */,
+				3E9835F02C552791008B2351 /* TabBarController.swift in Sources */,
+				3E9835E92C54F082008B2351 /* HomeVideoCell.swift in Sources */,
+				3E9835E42C54EED9008B2351 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

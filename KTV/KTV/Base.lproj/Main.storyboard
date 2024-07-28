@@ -85,17 +85,32 @@
             </objects>
             <point key="canvasLocation" x="2413" y="746"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="hyC-7m-qcH">
             <objects>
-                <viewController id="KG8-0C-sNB" sceneMemberID="viewController">
+                <viewController id="KG8-0C-sNB" customClass="HomeViewController" customModule="KTV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HcJ-Km-Ei6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Z6y-wG-qfO">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" name="bg"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Fyc-Ya-ThA"/>
                         <color key="backgroundColor" name="bg"/>
+                        <constraints>
+                            <constraint firstItem="Fyc-Ya-ThA" firstAttribute="trailing" secondItem="Z6y-wG-qfO" secondAttribute="trailing" id="43v-av-Zfe"/>
+                            <constraint firstItem="Fyc-Ya-ThA" firstAttribute="bottom" secondItem="Z6y-wG-qfO" secondAttribute="bottom" id="8wm-xb-b8P"/>
+                            <constraint firstItem="Z6y-wG-qfO" firstAttribute="leading" secondItem="Fyc-Ya-ThA" secondAttribute="leading" id="PZo-6B-Ntl"/>
+                            <constraint firstItem="Z6y-wG-qfO" firstAttribute="top" secondItem="Fyc-Ya-ThA" secondAttribute="top" id="mGk-Rj-2Tx"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabIcon_home" selectedImage="tabIcon_home_selected" id="PAy-0J-8Ta"/>
+                    <connections>
+                        <outlet property="tableView" destination="Z6y-wG-qfO" id="FKc-hW-TpI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiN-z5-Dt0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +119,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="NU8-kq-TEf">
             <objects>
-                <tabBarController storyboardIdentifier="tabbar" id="5yq-rF-QDk" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar" id="5yq-rF-QDk" customClass="TabBarController" customModule="KTV" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eVe-2R-ZLC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

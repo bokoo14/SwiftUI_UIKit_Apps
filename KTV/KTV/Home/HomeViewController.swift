@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         self.setupTableView()
+        self.bindViewModel()
     }
 
     func setupTableView() {
@@ -46,6 +47,12 @@ class HomeViewController: UIViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "empty")
         self.tableView.delegate = self
         self.tableView.dataSource = self
+
+        self.tableView.isHidden = true
+    }
+
+    private func bindViewModel() {
+
     }
 }
 

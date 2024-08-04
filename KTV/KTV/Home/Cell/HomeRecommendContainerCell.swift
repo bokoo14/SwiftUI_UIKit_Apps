@@ -46,6 +46,7 @@ class HomeRecommendContainerCell: UITableViewCell {
     @IBOutlet weak var foldButton: UIButton!
     weak var delegate: HomeRecommendContainerCellDelegate?
 
+    private var recommends: [Home.Recommend]?
 
     // 초기화 메서드로, Nib 파일에서 로드된 후 호출
     override func awakeFromNib() {
@@ -63,13 +64,17 @@ class HomeRecommendContainerCell: UITableViewCell {
         )
     }
 
+    @IBAction func foldButtonDidTap(_ sender: Any) { }
 
-    @IBAction func foldButtonDidTap(_ sender: Any) {}
-    
     // 셀의 선택 상태를 설정
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+    }
+
+    func setData(_ data: [Home.Recommend]) {
+        self.recommends = data
+        self.tableView.reloadData()
     }
 }
 
@@ -81,7 +86,17 @@ extension HomeRecommendContainerCell: UITableViewDataSource, UITableViewDelegate
     
     // 특정 인텍스 경로에 대한 셀을 반환
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: HomeRecommendItemCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: HomeRecommendItemCell.identifier,
+            for: indexPath
+        )
+
+        if let cell = cell as? HomeRecommendItemCell,
+           let data = self.recommends?[indexPath.row] {
+            cell.setData(data, rank: indexPath.row + 1)
+        }
+        
+        return cell
     }
 
     // 특정 행이 선택되었을 때 호출. 이 메서드에서 delegate를 호출하여 이벤트를 외부에 전달

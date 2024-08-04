@@ -17,10 +17,13 @@ class HomeRankingContainerCell: UITableViewCell {
     static let height: CGFloat = 349
     @IBOutlet weak var collectionView: UICollectionView!
     weak var delegate: HomeRankingContainerCellDelegate?
+    private var ranking: [Home.Ranking]?
 
+    // nib 파일이 로드된 후 초기화 작업을 수행
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        // collectionView에 cell 등록
         self.collectionView.register(
             UINib(nibName: HomeRankingItemCell.identifier,
                   bundle: nil),
@@ -35,18 +38,28 @@ class HomeRankingContainerCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
+    // 외부에서 데이터를 설정하고 컬렉션 뷰를 다시 로드
+    func setData(_ data: [Home.Ranking]) {
+        self.ranking = data
+        self.collectionView.reloadData()
+    }
 }
 
 extension HomeRankingContainerCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        self.ranking?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRankingItemCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: HomeRankingItemCell.identifier,
+            for: indexPath
+        )
 
-        if let cell = cell as? HomeRankingItemCell {
-            cell.setRank(indexPath.item + 1)
+        if let cell = cell as? HomeRankingItemCell,
+            let data = self.ranking?[indexPath.item] {
+            cell.setData(data, rank: indexPath.item + 1)
         }
 
         return cell

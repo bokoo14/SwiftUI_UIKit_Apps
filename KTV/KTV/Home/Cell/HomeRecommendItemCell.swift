@@ -43,5 +43,25 @@ class HomeRecommendItemCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        self.titleLabel.text = nil
+        self.descriptionLabel.text = nil
+        self.thumbnailImageView.image = nil
+        self.playTimeLabel.text = nil
+        self.rankLabel.text = nil
+    }
+
+    func setData(_ data: Home.Recommend, rank: Int?) {
+        self.rankLabel.isHidden = rank == nil
+        if let rank {
+            self.rankLabel.text = "\(rank)"
+        }
+        self.titleLabel.text = data.title
+        self.descriptionLabel.text = data.channel
+        // TODO: image task
+    }
+
 }

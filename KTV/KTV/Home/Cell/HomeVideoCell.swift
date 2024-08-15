@@ -21,6 +21,24 @@ class HomeVideoCell: UITableViewCell {
     @IBOutlet weak var channelSubtitleLabel: UILabel!
 
     /**
+     thumbnailTask, channelThumbnailTask: 썸네일 이미지, 채널 썸네일 이미지를 비동기적으로 로드하거나 처리하는 작업
+     optional로 처리하여 초기에는 작업이 없을 수 있으며, 필요할 때 비동기 작업을 할당할 수 있음. 작업이 완료되거나, 필요 없을 때는 nil로 설정하여 작업을 취소하거나 메모리 해제 가능
+
+     Task<Void, Never>?: 비동기 작업을 표현하는 타입
+     Void: 작업이 완료되었을 때 반환할 값의 타입 (반환 값이 없음을 의미)
+     Never: 이 작업에서 오류가 발생하지 않음을 의미 (오류를 던지지 않으므로 try-catch로 처리할 필요 없음)
+
+     Task를 사용하는 이유
+     - 비동기 작업 관리: 비동기 작업을 실행하고 관리할 수 있는 구조 제공. 메인 스레드를 차단하지 않고, 백그라운드에서 실행될 수 있음
+     - 작업 취소 가능성: 객체의 취소 기능 제공하여 화면을 떠나거나 작업이 필요하지 않다면 Task를 취소하여 불필요한 리소스 소비 방지 가능
+        thumbnailTask?.cancel()과 같은 방법으로 작업을 취소할 수 있음
+     - 옵셔널 타입: Task변수를 옵셔널로 선언함으로써 필요할 때만 작업을 생성하고, 필요 없을 때는 'nil'로 설정하여 메모리 관리
+        작업이 존재하는지 여부를 쉽게 확인하고, 작업이 이미 실행 중인지 확인할 수 있음'
+     */
+    private var thumbnailTask: Task<Void, Never>?
+    private var channelThumbnailTask: Task<Void, Never>?
+
+    /**
      xib에서 만든 UI에 대해서는 awakeFromNib에서 처리해주어야 한다.
      XIB로 만든 UI가 이 class에 정상적으로 연동을 마쳤을떄 불린다.
      */
@@ -44,7 +62,10 @@ class HomeVideoCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        // TODO: thumbnail Task
+        self.thumbnailTask?.cancel()
+        self.thumbnailTask = nil
+        self.channelThumbnailTask?.cancel()
+        self.channelThumbnailTask = nil
 
         self.thumbnailImageView.image = nil
         self.titleLabel.text = nil
@@ -66,7 +87,9 @@ class HomeVideoCell: UITableViewCell {
         self.channelTitleLabel.text = data.channel
         self.channelSubtitleLabel.text = data.channelDescription
         self.hotImageView.isHidden = !data.isHot
-        // TODO: tumbnail Task
+
+        self.thumbnailTask = self.thumbnailImageView.loadImage(url: data.imageUrl)
+        self.channelThumbnailTask = self.channelImageView.loadImage(url: data.channelThumbnailURL)
     }
 }
 

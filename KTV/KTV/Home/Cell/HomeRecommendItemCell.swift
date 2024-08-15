@@ -28,7 +28,17 @@ class HomeRecommendItemCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var playTimeBGView: UIView!
     @IBOutlet weak var playTimeLabel: UILabel!
-    
+
+    private var imageTask: Task<Void, Never>?
+    private static let timeFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional // 5분 8초 -> "5:08"
+        formatter.zeroFormattingBehavior = .pad // 7초 -> 07
+        formatter.allowedUnits = [.minute, .second] // 분, 초 단위만 사용
+
+        return formatter
+    }()
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -61,7 +71,8 @@ class HomeRecommendItemCell: UITableViewCell {
         }
         self.titleLabel.text = data.title
         self.descriptionLabel.text = data.channel
-        // TODO: image task
-    }
 
+        self.playTimeLabel.text = Self.timeFormatter.string(from: data.playtime)
+        self.imageTask = self.thumbnailImageView.loadImage(url: data.imageUrl)
+    }
 }

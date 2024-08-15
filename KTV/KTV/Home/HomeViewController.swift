@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
 
         self.setupTableView()
         self.bindViewModel()
+        self.homeViewModel.requestData()
     }
 
     func setupTableView() {
@@ -52,7 +53,10 @@ class HomeViewController: UIViewController {
     }
 
     private func bindViewModel() {
-
+        self.homeViewModel.dataChanged = { [weak self] in
+            self?.tableView.isHidden = false
+            self?.tableView.reloadData()
+        }
     }
 }
 
@@ -74,7 +78,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .header:
             return 1
         case .video:
-            return 2
+            return self.homeViewModel.home?.videos.count ?? 0
         case .ranking:
             return 1
         case .recentWatch:
@@ -101,7 +105,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .recentWatch:
             return HomeRecentWatchContainerCell.height
         case .recommend:
-            return HomeRecommendContainerCell.height
+            return HomeRecommendContainerCell.height(viewModel: self.homeViewModel.recommendViewModel)
         case .footer:
             return HomeFooterCell.height
         }
@@ -119,38 +123,62 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 withIdentifier: HomeHeaderCell.identifier,
                 for: indexPath
             )
+
         case .video:
-            return tableView.dequeueReusableCell(
-                withIdentifier: HomeVideoCell.identifier,
-                for: indexPath
-            )
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: HomeVideoCell.identifier, 
+                for: indexPath)
+
+            if let cell = cell as? HomeVideoCell,
+               let data = self.homeViewModel.home?.videos[indexPath.row] {
+                cell.setData(data)
+            }
+            return cell
+
         case .ranking:
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: HomeRankingContainerCell.identifier,
                 for: indexPath
             )
+
+            if let cell = cell as? HomeRankingContainerCell,
+               let data = self.homeViewModel.home?.rankings {
+                cell.delegate = self
+                cell.setData(data)
+            }
             (cell as? HomeRankingContainerCell)?.delegate = self
             return cell
+
         case .recentWatch:
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: HomeRecentWatchContainerCell.identifier,
                 for: indexPath
             )
-            (cell as? HomeRecentWatchContainerCell)?.delegate = self
+
+            if let cell = cell as? HomeRecentWatchContainerCell,
+               let data = self.homeViewModel.home?.recents {
+                cell.delegate = self
+                cell.setData(data)
+            }
             return cell
+
         case .recommend:
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: HomeRecommendContainerCell.identifier,
                 for: indexPath
             )
-            (cell as? HomeRecommendContainerCell)?.delegate = self
+
+            if let cell = cell as? HomeRecommendContainerCell {
+                cell.delegate = self
+                cell.setViewModel(self.homeViewModel.recommendViewModel)
+            }
             return cell
+
         case .footer:
             return tableView.dequeueReusableCell(
                 withIdentifier: HomeFooterCell.identifier,
                 for: indexPath
             )
-
         }
     }
 }
@@ -162,6 +190,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: HomeRecommendContainerCellDelegate {
     func homeRecommendContainerCell(_ cell: HomeRecommendContainerCell, didSelectItemAt index: Int) {
         print("home recommend cell did select item at \(index)")
+    }
+
+    func homeRecommendContainerCellFoldChanged(_ cell: HomeRecommendContainerCell) {
+        self.tableView.reloadData()
     }
 }
 

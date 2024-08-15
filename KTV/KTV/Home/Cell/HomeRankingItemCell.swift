@@ -13,7 +13,9 @@ class HomeRankingItemCell: UICollectionViewCell {
 
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var numberLabel: UILabel!
-    
+
+    private var imageTask: Task<Void, Never>?
+
     /**
      인터페이스 빌더에서 설정된 뷰의 속성들을 초기화하거나 추가적인 설정을 할 때 유용
      뷰가 Nib 파일에서 로드될 때 호출
@@ -30,9 +32,11 @@ class HomeRankingItemCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
+        self.imageTask?.cancel()
+        self.imageTask = nil
+
         self.numberLabel.text = nil
         self.thumbnailImageView.image = nil
-        // TODO: thumbnailImage
     }
 
     func setRank(_ rank: Int) {
@@ -41,6 +45,7 @@ class HomeRankingItemCell: UICollectionViewCell {
 
     func setData(_ data: Home.Ranking, rank: Int) {
         self.numberLabel.text = "\(rank)"
-        // TODO: thumbnailImage
+
+        self.imageTask = self.thumbnailImageView.loadImage(url: data.imageUrl)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  HomeRecommendItemCell.swift
+//  VideoListItemCell.swift
 //  KTV
 //
 //  Created by Bokyung on 7/28/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeRecommendItemCell: UITableViewCell {
+class VideoListItemCell: UITableViewCell {
     /**
      static
      클래스 레벨에서 접근 가능
@@ -19,8 +19,9 @@ class HomeRecommendItemCell: UITableViewCell {
      인스턴스 변수로 정의할 경우 각 셀 인스턴스마다 해당 변수가 존재하게 되지만, static으로 정의하면 클래스당 하나만 존재한다.
      */
     static let height: CGFloat = 71
-    static let identifier: String = "HomeRecommendItemCell"
+    static let identifier: String = "VideoListItemCell"
 
+    @IBOutlet weak var contentLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var thumbnailContainerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -46,6 +47,8 @@ class HomeRecommendItemCell: UITableViewCell {
         self.rankLabel.layer.cornerRadius = 5
         self.rankLabel.clipsToBounds = true
         self.playTimeBGView.layer.cornerRadius = 3
+
+        self.backgroundConfiguration = .clear()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -62,9 +65,10 @@ class HomeRecommendItemCell: UITableViewCell {
         self.thumbnailImageView.image = nil
         self.playTimeLabel.text = nil
         self.rankLabel.text = nil
+        self.contentLeadingConstraint.constant = 0
     }
 
-    func setData(_ data: Home.Recommend, rank: Int?) {
+    func setData(_ data: VideoListItem, rank: Int?) {
         self.rankLabel.isHidden = rank == nil
         if let rank {
             self.rankLabel.text = "\(rank)"
@@ -74,5 +78,9 @@ class HomeRecommendItemCell: UITableViewCell {
 
         self.playTimeLabel.text = Self.timeFormatter.string(from: data.playtime)
         self.imageTask = self.thumbnailImageView.loadImage(url: data.imageUrl)
+    }
+
+    func setLeading(_ leading: CGFloat) {
+        self.contentLeadingConstraint.constant = leading
     }
 }

@@ -14,7 +14,7 @@ struct Home: Decodable {
     let videos: [Video]
     let rankings: [Ranking]
     let recents: [Recent]
-    let recommends: [Recommend]
+    let recommends: [VideoListItem]
 }
 
 extension Home {
@@ -41,13 +41,4 @@ extension Home {
         let title: String
         let channel: String
     }
-
-    struct Recommend: Decodable {
-        let imageUrl: URL
-        let title: String
-        let playtime: Double
-        let channel: String
-        let videoId: Int
-    }
-
 }

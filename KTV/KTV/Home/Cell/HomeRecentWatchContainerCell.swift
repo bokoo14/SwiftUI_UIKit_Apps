@@ -12,9 +12,11 @@ protocol HomeRecentWatchContainerCellDelegate: AnyObject {
     func homeRecentWatchContainerCell(_ cell: HomeRecentWatchContainerCell, 
                                       didSelectItemAt index: Int)
 }
-
-// HomeRecentWatchContainerCell 클래스는 UITableViewCell을 상속
-class HomeRecentWatchContainerCell: UITableViewCell {
+/**
+ HomeRecentWatchContainerCell 클래스는 UITableViewCell을 상속
+ UITableViewCell ->  UICollectionViewCell
+ */
+class HomeRecentWatchContainerCell: UICollectionViewCell {
 
     static let identifier: String = "HomeRecentWatchContainerCell"
     static let height: CGFloat = 209
@@ -40,12 +42,6 @@ class HomeRecentWatchContainerCell: UITableViewCell {
         // 데이터 소스 및 델리게이트 설정
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     // setData 메서드는 외부에서 데이터를 설정하고 컬렉션 뷰를 다시 로드

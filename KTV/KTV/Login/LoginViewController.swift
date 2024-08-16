@@ -11,9 +11,7 @@ class LoginViewController: UIViewController {
 
     // outlet: UI를 화면과 연결
     // 간혹 이름을 바꾸는 경우 referencing outlet이 잘못될 수 있으므로 확인 필요
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
-    
     /**
      viewDidLoad: 뷰 컨트롤러의 뷰가 메모리에 로드된 후에 호출
      보통 초기 설정이나 뷰를 초기화할 때 사용, 한 번만 호출되므로, 뷰가 화면에 표시될 때마다 반복적으로 수행될 필요가 없는 초기화 작업에 적합하다.

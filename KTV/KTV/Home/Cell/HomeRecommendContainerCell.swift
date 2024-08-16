@@ -30,8 +30,10 @@ protocol HomeRecommendContainerCellDelegate: AnyObject {
 /**
  이 테이블 뷰의 셀 선택 이벤트를 외부로 전달하기 위해 HomeRecommendContainerCellDelegate 프로토콜 사용
  delegate: 외부 객체를 참조할 약한 참조로 선언된 delegate이다.  이 delegate는 프로토콜을 준수하는 객체여야 합니다.
+
+ UITableViewCell -> UICollectionViewCell
  */
-class HomeRecommendContainerCell: UITableViewCell {
+class HomeRecommendContainerCell: UICollectionViewCell {
 
     static let identifier: String = "HomeRecommendContainerCell"
 
@@ -67,12 +69,6 @@ class HomeRecommendContainerCell: UITableViewCell {
     @IBAction func foldButtonDidTap(_ sender: Any) {
         self.viewModel?.toggleFoldState()
         self.delegate?.homeRecommendContainerCellFoldChanged(self)
-    }
-
-    // 셀의 선택 상태를 설정
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
 
     func setViewModel(_ viewModel: HomeRecommendViewModel) {

@@ -29,24 +29,11 @@ import Foundation
          try: 오류가 발생할 수 있는 상황을 처리
          catch: 네트워크 요청이나 JSON 파싱 중 오류가 발생했을 때 이를 처리
          */
-//        Task {
-//            do {
-//                let home = try await DataLoader.load(url: URLDefines.home, for: Home.self)
-//                self.home = home
-//                // 네트워크 요청을 통해 가져온 home객체의 recommends 속성을 ViewModel에 할당
-//                self.recommendViewModel.recommends = home.recommends
-//                self.dataChanged?()
-//            } catch {
-//                print("json parsing failed: \(error.localizedDescription)")
-//            }
-//        }
         Task {
             do {
                 print("Starting data request...")
                 let home = try await DataLoader.load(url: URLDefines.home, for: Home.self)
                 print("Data successfully loaded")
-
-                // home 객체의 내용을 로그로 출력하여 확인
                 print("Home data: \(home)")
 
                 self.home = home
@@ -56,7 +43,6 @@ import Foundation
 
                 print("Data processed successfully")
             } catch {
-                // 오류 발생 시, 오류 메시지와 더불어 추가적인 정보를 출력
                 print("json parsing failed: \(error.localizedDescription)")
                 if let error = error as? DecodingError {
                     switch error {
@@ -76,6 +62,5 @@ import Foundation
                 }
             }
         }
-
     }
 }

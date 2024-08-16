@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="l40-6d-akd" customClass="HomeFooterView" customModule="KTV" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PL0-Qa-h3k">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuw-0c-86S">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1"/>
+                            <color key="backgroundColor" name="stroke-light"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="hNO-YG-C9X"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" text="이용약관" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHR-ce-KU6">
+                            <rect key="frame" x="27.999999999999996" y="11" width="34.666666666666657" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rk-bx-kNk">
+                            <rect key="frame" x="27.999999999999996" y="35" width="51.666666666666657" height="28"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="K사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeS-Qp-p64">
+                                    <rect key="frame" x="24" y="3.3333333333333357" width="27.666666666666671" height="21.666666666666668"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                    <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pNa-K2-xzf">
+                                    <rect key="frame" x="0.0" y="5.6666666666666643" width="14" height="16.666666666666668"/>
+                                    <color key="tintColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="14" id="Rp4-E7-f1E"/>
+                                        <constraint firstAttribute="height" constant="16.5" id="rU0-MV-aQp"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="oeS-Qp-p64" firstAttribute="leading" secondItem="pNa-K2-xzf" secondAttribute="trailing" constant="10" id="68Q-br-guo"/>
+                                <constraint firstItem="pNa-K2-xzf" firstAttribute="leading" secondItem="8rk-bx-kNk" secondAttribute="leading" id="GAN-2A-1VS"/>
+                                <constraint firstAttribute="trailing" secondItem="oeS-Qp-p64" secondAttribute="trailing" id="GJE-tf-cos"/>
+                                <constraint firstAttribute="height" constant="28" id="ZEn-Kd-vDa"/>
+                                <constraint firstItem="pNa-K2-xzf" firstAttribute="centerY" secondItem="8rk-bx-kNk" secondAttribute="centerY" id="dxq-Ux-4qk"/>
+                                <constraint firstItem="oeS-Qp-p64" firstAttribute="centerY" secondItem="8rk-bx-kNk" secondAttribute="centerY" id="kkw-uU-iKy"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유료서비스 이용약관" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60L-M5-ccz">
+                            <rect key="frame" x="83.666666666666657" y="11" width="309.33333333333337" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="bg"/>
+                    <constraints>
+                        <constraint firstItem="60L-M5-ccz" firstAttribute="leading" secondItem="GHR-ce-KU6" secondAttribute="trailing" constant="21" id="2Uq-Ta-rYN"/>
+                        <constraint firstItem="GHR-ce-KU6" firstAttribute="top" secondItem="cuw-0c-86S" secondAttribute="bottom" constant="10" id="66n-RA-9ty"/>
+                        <constraint firstItem="8rk-bx-kNk" firstAttribute="leading" secondItem="PL0-Qa-h3k" secondAttribute="leading" constant="28" id="8ib-Af-aMB"/>
+                        <constraint firstItem="cuw-0c-86S" firstAttribute="leading" secondItem="PL0-Qa-h3k" secondAttribute="leading" id="EzL-Zr-FMf"/>
+                        <constraint firstItem="8rk-bx-kNk" firstAttribute="top" secondItem="GHR-ce-KU6" secondAttribute="bottom" constant="12" id="Fyx-qZ-Rvg"/>
+                        <constraint firstItem="cuw-0c-86S" firstAttribute="top" secondItem="PL0-Qa-h3k" secondAttribute="top" id="MFP-3b-X7A"/>
+                        <constraint firstItem="60L-M5-ccz" firstAttribute="top" secondItem="cuw-0c-86S" secondAttribute="bottom" constant="10" id="Moo-PC-bw9"/>
+                        <constraint firstAttribute="bottom" secondItem="8rk-bx-kNk" secondAttribute="bottom" constant="17" id="Oo8-b4-5QV"/>
+                        <constraint firstItem="GHR-ce-KU6" firstAttribute="leading" secondItem="PL0-Qa-h3k" secondAttribute="leading" constant="28" id="VsL-uU-khA"/>
+                        <constraint firstAttribute="trailing" secondItem="60L-M5-ccz" secondAttribute="trailing" id="XXx-bo-3M6"/>
+                        <constraint firstAttribute="trailing" secondItem="cuw-0c-86S" secondAttribute="trailing" id="k2B-Yl-fla"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="ppX-mj-gMF"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="PL0-Qa-h3k" secondAttribute="bottom" id="3Gc-ay-ep6"/>
+                <constraint firstItem="PL0-Qa-h3k" firstAttribute="leading" secondItem="l40-6d-akd" secondAttribute="leading" id="Jhj-Zu-3lG"/>
+                <constraint firstAttribute="trailing" secondItem="PL0-Qa-h3k" secondAttribute="trailing" id="k3A-bf-ObH"/>
+                <constraint firstItem="PL0-Qa-h3k" firstAttribute="top" secondItem="l40-6d-akd" secondAttribute="top" id="tYa-5Z-J23"/>
+            </constraints>
+            <point key="canvasLocation" x="112" y="103"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="logo" width="24" height="29"/>
+        <namedColor name="bg">
+            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="stroke-light">
+            <color red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

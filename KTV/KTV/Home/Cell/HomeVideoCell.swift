@@ -7,9 +7,12 @@
 
 import UIKit
 
-class HomeVideoCell: UITableViewCell {
+/**
+ UITableViewCell -> UICollectionViewCell
+ */
+class HomeVideoCell: UICollectionViewCell {
     static let identifier: String = "HomeVideoCell"
-    static let height: CGFloat = 320
+    static let height: CGFloat = 300
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var thumbnailImageView: UIImageView!
@@ -52,6 +55,8 @@ class HomeVideoCell: UITableViewCell {
         // component에 따라 cornerRadius, borderColor, borderWidth ,, 적용되지 않을수도 있다.
         // -> layer에 대해 configuration을 적용했어도 잘 동작히지 않는다면, clipsToBounds = true
         // self.containerView.layer.clipsToBounds = true
+
+        self.channelImageView.layer.cornerRadius = 10
     }
 
     /**
@@ -73,12 +78,6 @@ class HomeVideoCell: UITableViewCell {
         self.channelTitleLabel.text = nil
         self.channelImageView.image = nil
         self.channelSubtitleLabel.text = nil
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     func setData(_ data: Home.Video) {

@@ -11,7 +11,10 @@ protocol HomeRankingContainerCellDelegate: AnyObject {
     func homeRankingContainerCell(_ cell: HomeRankingContainerCell, didSelectItemAt index: Int)
 }
 
-class HomeRankingContainerCell: UITableViewCell {
+/**
+ UITableViewCell -> UICollectionViewCell
+ */
+class HomeRankingContainerCell: UICollectionViewCell {
 
     static let identifier: String = "HomeRankingContainerCell"
     static let height: CGFloat = 349
@@ -31,12 +34,6 @@ class HomeRankingContainerCell: UITableViewCell {
         )
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     // 외부에서 데이터를 설정하고 컬렉션 뷰를 다시 로드

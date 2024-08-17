@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HOj-Qm-iX8" customClass="MoreTableViewCell" customModule="KTV" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HOj-Qm-iX8" id="78z-ez-BKF">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화질 변경" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zz1-AS-fpf">
+                        <rect key="frame" x="30.000000000000004" y="13.666666666666664" width="52.333333333333343" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more_right" translatesAutoresizingMaskIntoConstraints="NO" id="Tl2-jh-pX1">
+                        <rect key="frame" x="267" y="10" width="24" height="24"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRX-kb-SoN">
+                        <rect key="frame" x="217.66666666666666" y="13.666666666666664" width="35.333333333333343" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" name="main-yellow"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OnW-Al-Lly">
+                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                        <color key="backgroundColor" name="stroke-light"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Gpg-Bz-E1d"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="bg"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="OnW-Al-Lly" secondAttribute="bottom" id="0fY-fB-E96"/>
+                    <constraint firstItem="zz1-AS-fpf" firstAttribute="leading" secondItem="78z-ez-BKF" secondAttribute="leading" constant="30" id="OLb-Vg-poB"/>
+                    <constraint firstItem="OnW-Al-Lly" firstAttribute="leading" secondItem="78z-ez-BKF" secondAttribute="leading" id="Pfw-qX-JeF"/>
+                    <constraint firstAttribute="trailing" secondItem="Tl2-jh-pX1" secondAttribute="trailing" constant="29" id="Tx1-iQ-knk"/>
+                    <constraint firstItem="Tl2-jh-pX1" firstAttribute="centerY" secondItem="78z-ez-BKF" secondAttribute="centerY" id="Zsh-6f-MBm"/>
+                    <constraint firstItem="zz1-AS-fpf" firstAttribute="centerY" secondItem="78z-ez-BKF" secondAttribute="centerY" id="dc3-fn-PUS"/>
+                    <constraint firstItem="NRX-kb-SoN" firstAttribute="centerY" secondItem="78z-ez-BKF" secondAttribute="centerY" id="q5d-MP-nA4"/>
+                    <constraint firstItem="Tl2-jh-pX1" firstAttribute="leading" secondItem="NRX-kb-SoN" secondAttribute="trailing" constant="14" id="t9l-XT-Zjq"/>
+                    <constraint firstAttribute="trailing" secondItem="OnW-Al-Lly" secondAttribute="trailing" id="xtg-Sd-eZg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="lFW-xC-Met"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="NRX-kb-SoN" id="MzI-Np-48R"/>
+                <outlet property="separatorView" destination="OnW-Al-Lly" id="Rix-uC-nbj"/>
+                <outlet property="titleLabel" destination="zz1-AS-fpf" id="eP4-GA-x9o"/>
+            </connections>
+            <point key="canvasLocation" x="134" y="-13"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="more_right" width="24" height="24"/>
+        <namedColor name="bg">
+            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="main-yellow">
+            <color red="0.99215686274509807" green="0.89411764705882357" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="stroke-light">
+            <color red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

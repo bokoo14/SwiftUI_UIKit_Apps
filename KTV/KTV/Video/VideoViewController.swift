@@ -22,6 +22,11 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var recommendTableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
 
+    private static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MMdd"
+        return formatter
+    }()
 
     /**
      NSKeyValueObservation
@@ -30,6 +35,7 @@ class VideoViewController: UIViewController {
      recommendTableView의 contentSize 속성을 관찰하여 테이블 뷰의 내용이 변경될 때 테이블 뷰의 높이를 자동으로 조정하는 데 사용됨
      */
     private var contentSizeObservation: NSKeyValueObservation?
+    private let viewModel = VideoViewModel()
 
     override init(nibName nibNameorNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameorNil, bundle: nibBundleOrNil)
@@ -48,6 +54,24 @@ class VideoViewController: UIViewController {
 
         self.channelThumbnailImageView.layer.cornerRadius = 14
         self.setupRecommendTableView()
+        self.bindViewModel()
+        self.viewModel.request()
+    }
+
+    private func bindViewModel() {
+        self.viewModel.dataChangeHandler = { [weak self] in
+            self?.setupData($0)
+        }
+    }
+
+    private func setupData(_ video: Video) {
+        self.titleLabel.text = video.title
+        self.channelThumbnailImageView.loadImage(url: video.channelImageUrl)
+        self.channelNameLabel.text = video.channel
+        self.updateDateLabel.text = Self.dateFormatter.string(from: Date(timeIntervalSince1970: video.uploadTimestamp))
+        self.playCountLabel.text = "재생수 \(video.playCount)"
+        self.favoriteButton.setTitle("\(video.favoriteCount)", for: .normal)
+        self.recommendTableView.reloadData()
     }
 
     @IBAction func commentDidTap(_ sender: Any) {
@@ -60,9 +84,12 @@ extension VideoViewController {
     }
 
     @IBAction func closeDidTap(_ sender: Any) {
+        self.dismiss(animated: true)
     }
 
     @IBAction func moreDidTap(_ sender: Any) {
+        let moreVC = MoreViewController()
+        self.present(moreVC, animated: false)
     }
 
     @IBAction func fastForwardDidTap(_ sender: Any) {
@@ -107,11 +134,17 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        self.viewModel.video?.recommends.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VideoListItemCell.identifier, for: indexPath)
+
+        if let cell = cell as? VideoListItemCell,
+           let data = self.viewModel.video?.recommends[indexPath.row] {
+            cell.setData(data, rank: indexPath.row + 1)
+        }
+
         return cell
     }
 }

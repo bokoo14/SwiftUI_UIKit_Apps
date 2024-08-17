@@ -22,6 +22,15 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var recommendTableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
 
+
+    /**
+     NSKeyValueObservation
+     NSKeyValueObservation 타입의 옵셔버를 저장
+     특정 객체의 프로퍼티 값을 관찰하고, 값이 변경될 때 실행될 코드(클로저)를 정의할 수 있다.
+     recommendTableView의 contentSize 속성을 관찰하여 테이블 뷰의 내용이 변경될 때 테이블 뷰의 높이를 자동으로 조정하는 데 사용됨
+     */
+    private var contentSizeObservation: NSKeyValueObservation?
+
     override init(nibName nibNameorNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameorNil, bundle: nibBundleOrNil)
 
@@ -79,6 +88,23 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource {
         self.recommendTableView.register(
             UINib(nibName: VideoListItemCell.identifier, bundle: nil),
             forCellReuseIdentifier: VideoListItemCell.identifier)
+
+        /**
+         recommendTableView의 contentSize 속성을 관찰
+         contentSize는 테이블 뷰의 모든 셀과 섹션의 내용에 따른 전체 크기를 나타냄
+
+         옵저버 생성: observe 메소드는 KVO (Key-Value Observing)를 사용하여 contentSize의 변화를 감지하고, 지정된 클로저를 호출
+         클로저 내 동작: contentSize가 변경되면, 클로저 내에서 테이블 뷰의 높이 제약조건(tableViewHeightConstraint.constant)을 테이블 뷰의 contentSize.height로 업데이트
+         이를 통해 테이블 뷰의 높이가 내용물의 높이에 맞게 동적으로 조정된다
+
+         UITableView의 내용 크기를 실시간으로 관찰하여, 테이블 뷰의 높이를 그에 맞춰 자동으로 조정한다. 이를 통해 사용자는 테이블 뷰 안의 내용이 변경되더라도 뷰 레이아웃이 적절히 유지되도록 할 수 있다.
+         */
+        self.contentSizeObservation = self.recommendTableView.observe(
+            \.contentSize,
+             changeHandler: { [weak self] tableView, _ in
+                 self?.tableViewHeightConstraint.constant = tableView.contentSize.height
+             })
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         10

@@ -72,6 +72,11 @@ class HomeViewController: UIViewController {
             self?.collectionView.reloadData()
         }
     }
+
+    private func presentVideoViewController() {
+        let vc = VideoViewController()
+        self.present(vc, animated: true)
+    }
 }
 
 
@@ -155,6 +160,19 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let section = HomeSection(rawValue: indexPath.row) else {
+            return
+        }
+
+        switch section {
+        case .header, .footer, .ranking, .recentWatch, .recommend:
+            return
+        case .video:
+            self.presentVideoViewController()
+        }
+    }
+
     private func insetForSection(_ section: HomeSection) -> UIEdgeInsets {
         switch section {
         case .header, .footer:
@@ -163,7 +181,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return .init(top: 0, left: 21, bottom: 21, right: 21)
         }
     }
-
 }
 
 /**
@@ -300,30 +317,30 @@ extension HomeViewController: UICollectionViewDataSource {
  위임자(Delegator): HomeRecommendContainerCell 클래스. 이 클래스는 테이블 뷰 셀에서 선택 이벤트가 발생할 때 delegate에게 이를 알리는 역할을 한다.
  위임받는자(Delegate): HomeRecommendContainerCellDelegate 프로토콜을 준수하는 외부 객체. 일반적으로 뷰 컨트롤러가 이 역할을 수행한다.
  */
+/**
+ UITableView vs UICollectionView
+ - UITableView
+ 리스트 형식의 데이터 표시를 위한 뷰. 보통 행(row)단위로 데이터 표시
+ reloadData(): UITableView의 데이터를 전면적으로 갱신
+        reloadData()를 호출하면 데이블의 모든 셀을 다시 로드하고, 각 셀의 크기를 재계산하며, 뷰를 모두 제거한 후 다시 추가
+        이 과정에서 모든 셀에 대해 'cellForRowAt' 메서드가 호출되며, 새로운 데이터를 기반으로 각 셀이 재구성됨
+ 리스트 전체가 새로고침되므로, 데이터가 바뀔 때 전체적으로 갱신해야 하는 경우 유용하지만, 많은 셀이 있을 때 성능에 영향을 줄 수 있음
+ 모든 셀의 뷰를 다시 로드하고 새로 그림. 데이터나 셀의 크기 등이 변경되었을 때 전체적으로 새로고침해야 하는 경우 사용
+
+ - UICollectionView
+ 다양한 레이아웃 옵션으로 데이터를 표시할 수 있는 뷰. 보통 그리드 형식이나 커스텀 레이아웃을 만들 수 있음
+ invalidateLayout(): 컬렉션 뷰의 레이아웃이 무효화되면서 다시 계산
+        각 셀의 레이아웃(즉, 셀의 크기나 위치)만 다시 계산하며, 셀의 데이터 자체를 다시 로드하지 않음
+        'cellForItemAt' 메서드는 다시 호출되지 않으며, 셀의 뷰는 그대로 유지된다.
+ 레이아웃만 변경하기 때문에 성능상 이점이 있으며, 셀의 내용이 아니라 레이아웃이 변경될 때 유용하다.
+ 셀의 크기가 동적으로 변경되거나, 컬렉션 뷰의 크기가 변할 때 유용하다.
+ 셀의 레이아웃만 다시 계산하며, 셀의 내용은 그대로 유지. 레이아웃이 변경되었을 때 성능을 최적화하는 데 유리
+ */
 extension HomeViewController: HomeRecommendContainerCellDelegate {
     func homeRecommendContainerCell(_ cell: HomeRecommendContainerCell, didSelectItemAt index: Int) {
-        print("home recommend cell did select item at \(index)")
+        self.presentVideoViewController()
     }
 
-    /**
-     UITableView vs UICollectionView
-     - UITableView
-     리스트 형식의 데이터 표시를 위한 뷰. 보통 행(row)단위로 데이터 표시
-     reloadData(): UITableView의 데이터를 전면적으로 갱신
-            reloadData()를 호출하면 데이블의 모든 셀을 다시 로드하고, 각 셀의 크기를 재계산하며, 뷰를 모두 제거한 후 다시 추가
-            이 과정에서 모든 셀에 대해 'cellForRowAt' 메서드가 호출되며, 새로운 데이터를 기반으로 각 셀이 재구성됨
-     리스트 전체가 새로고침되므로, 데이터가 바뀔 때 전체적으로 갱신해야 하는 경우 유용하지만, 많은 셀이 있을 때 성능에 영향을 줄 수 있음
-     모든 셀의 뷰를 다시 로드하고 새로 그림. 데이터나 셀의 크기 등이 변경되었을 때 전체적으로 새로고침해야 하는 경우 사용
-
-     - UICollectionView
-     다양한 레이아웃 옵션으로 데이터를 표시할 수 있는 뷰. 보통 그리드 형식이나 커스텀 레이아웃을 만들 수 있음
-     invalidateLayout(): 컬렉션 뷰의 레이아웃이 무효화되면서 다시 계산
-            각 셀의 레이아웃(즉, 셀의 크기나 위치)만 다시 계산하며, 셀의 데이터 자체를 다시 로드하지 않음
-            'cellForItemAt' 메서드는 다시 호출되지 않으며, 셀의 뷰는 그대로 유지된다.
-     레이아웃만 변경하기 때문에 성능상 이점이 있으며, 셀의 내용이 아니라 레이아웃이 변경될 때 유용하다.
-     셀의 크기가 동적으로 변경되거나, 컬렉션 뷰의 크기가 변할 때 유용하다.
-     셀의 레이아웃만 다시 계산하며, 셀의 내용은 그대로 유지. 레이아웃이 변경되었을 때 성능을 최적화하는 데 유리
-     */
     func homeRecommendContainerCellFoldChanged(_ cell: HomeRecommendContainerCell) {
         self.collectionView.collectionViewLayout.invalidateLayout()
     }
@@ -331,12 +348,12 @@ extension HomeViewController: HomeRecommendContainerCellDelegate {
 
 extension HomeViewController: HomeRankingContainerCellDelegate {
     func homeRankingContainerCell(_ cell: HomeRankingContainerCell, didSelectItemAt index: Int) {
-        print("home ranking did select at \(index)")
+        self.presentVideoViewController()
     }
 }
 
 extension HomeViewController: HomeRecentWatchContainerCellDelegate {
     func homeRecentWatchContainerCell(_ cell: HomeRecentWatchContainerCell, didSelectItemAt index: Int) {
-        print("home recent watch did select at \(index)")
+        self.presentVideoViewController()
     }
 }

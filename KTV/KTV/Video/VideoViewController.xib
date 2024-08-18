@@ -15,6 +15,7 @@
                 <outlet property="favoriteButton" destination="oYw-ee-EII" id="VcJ-oG-eOU"/>
                 <outlet property="playButton" destination="oKV-lI-upG" id="Kvr-qb-Cc2"/>
                 <outlet property="playCountLabel" destination="phh-JV-hFU" id="7cP-KN-2cA"/>
+                <outlet property="portraitControlPanel" destination="kWV-1G-Il7" id="cbi-GH-vgi"/>
                 <outlet property="recommendTableView" destination="GEw-cs-QhJ" id="2vK-k1-h4z"/>
                 <outlet property="tableViewHeightConstraint" destination="9TR-iX-Qya" id="FXo-4Z-ybU"/>
                 <outlet property="titleLabel" destination="Rrb-BF-0Uh" id="uKx-Cy-Mwc"/>
@@ -340,7 +341,7 @@
         </view>
         <tapGestureRecognizer id="31W-7D-Ytf">
             <connections>
-                <action selector="toggleControlPannel:" destination="-1" id="Tad-D1-hIl"/>
+                <action selector="toggleControlPannel:" destination="-1" id="w4Q-Vs-eRD"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

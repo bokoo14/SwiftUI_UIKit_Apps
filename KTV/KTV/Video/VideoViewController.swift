@@ -21,6 +21,7 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var recommendTableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var portraitControlPanel: UIView!
 
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -36,6 +37,11 @@ class VideoViewController: UIViewController {
      */
     private var contentSizeObservation: NSKeyValueObservation?
     private let viewModel = VideoViewModel()
+    private var isControlPannelHidden: Bool = true {
+        didSet {
+            self.portraitControlPanel.isHidden = self.isControlPannelHidden
+        }
+    }
 
     override init(nibName nibNameorNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameorNil, bundle: nibBundleOrNil)
@@ -81,6 +87,7 @@ class VideoViewController: UIViewController {
 
 extension VideoViewController {
     @IBAction func toggleControlPannel(_ sender: Any) {
+        self.isControlPannelHidden.toggle()
     }
 
     @IBAction func closeDidTap(_ sender: Any) {

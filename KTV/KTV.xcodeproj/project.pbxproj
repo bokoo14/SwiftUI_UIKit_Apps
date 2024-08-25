@@ -57,11 +57,13 @@
 		3E3A52162C70AE6D008C5270 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3A52152C70AE6D008C5270 /* MoreViewModel.swift */; };
 		3E3A52182C70B722008C5270 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3A52172C70B722008C5270 /* Video.swift */; };
 		3E3A521A2C70B745008C5270 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3A52192C70B745008C5270 /* VideoViewModel.swift */; };
+		3E3A521C2C71D85C008C5270 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3A521B2C71D85C008C5270 /* PlayerView.swift */; };
 		3E9835E42C54EED9008B2351 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9835E32C54EED9008B2351 /* HomeViewController.swift */; };
 		3E9835E82C54F082008B2351 /* HomeVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E9835E72C54F082008B2351 /* HomeVideoCell.xib */; };
 		3E9835E92C54F082008B2351 /* HomeVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9835E62C54F082008B2351 /* HomeVideoCell.swift */; };
 		3E9835EC2C551672008B2351 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9835EB2C551672008B2351 /* HomeSection.swift */; };
 		3E9835F02C552791008B2351 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9835EF2C552791008B2351 /* TabBarController.swift */; };
+		3EBACA772C7B5B950091CAE5 /* SeekbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBACA762C7B5B950091CAE5 /* SeekbarView.swift */; };
 		3EDF92602BFE30A500FC19DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF925F2BFE30A500FC19DE /* AppDelegate.swift */; };
 		3EDF92622BFE30A500FC19DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF92612BFE30A500FC19DE /* SceneDelegate.swift */; };
 		3EDF92642BFE30A500FC19DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF92632BFE30A500FC19DE /* LoginViewController.swift */; };
@@ -141,11 +143,13 @@
 		3E3A52152C70AE6D008C5270 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
 		3E3A52172C70B722008C5270 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		3E3A52192C70B745008C5270 /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
+		3E3A521B2C71D85C008C5270 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		3E9835E32C54EED9008B2351 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3E9835E62C54F082008B2351 /* HomeVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVideoCell.swift; sourceTree = "<group>"; };
 		3E9835E72C54F082008B2351 /* HomeVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVideoCell.xib; sourceTree = "<group>"; };
 		3E9835EB2C551672008B2351 /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		3E9835EF2C552791008B2351 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3EBACA762C7B5B950091CAE5 /* SeekbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekbarView.swift; sourceTree = "<group>"; };
 		3EDF925C2BFE30A500FC19DE /* KTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDF925F2BFE30A500FC19DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EDF92612BFE30A500FC19DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				3E109D9F2C6F69A100E06480 /* VideoViewController.swift */,
 				3E109DA02C6F69A100E06480 /* VideoViewController.xib */,
 				3E3A52192C70B745008C5270 /* VideoViewModel.swift */,
+				3E3A521B2C71D85C008C5270 /* PlayerView.swift */,
+				3EBACA762C7B5B950091CAE5 /* SeekbarView.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -565,12 +571,14 @@
 				3E1906A52C56337F00494E62 /* HomeRankingItemCell.swift in Sources */,
 				3E1906B72C5BD36700494E62 /* DataLoader.swift in Sources */,
 				3E3A520F2C70A663008C5270 /* MoreViewController.swift in Sources */,
+				3E3A521C2C71D85C008C5270 /* PlayerView.swift in Sources */,
 				3EDF92602BFE30A500FC19DE /* AppDelegate.swift in Sources */,
 				3E1906B92C5BD38100494E62 /* UIImageView+Task.swift in Sources */,
 				3E3A52162C70AE6D008C5270 /* MoreViewModel.swift in Sources */,
 				3E109D9B2C6F4E5F00E06480 /* Favorite.swift in Sources */,
 				3E9835EC2C551672008B2351 /* HomeSection.swift in Sources */,
 				3E3A52142C70ADE9008C5270 /* MoreTableViewCell.swift in Sources */,
+				3EBACA772C7B5B950091CAE5 /* SeekbarView.swift in Sources */,
 				3E19068D2C55FC5000494E62 /* HomeFooterView.swift in Sources */,
 				3E109D852C6E5D0200E06480 /* HomeRankingHeaderView.swift in Sources */,
 				3E1906A12C56311000494E62 /* HomeRecentWatchItemCell.swift in Sources */,

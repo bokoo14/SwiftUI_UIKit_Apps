@@ -23,6 +23,11 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var recommendTableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var portraitControlPanel: UIView!
+    @IBOutlet weak var landscapeControlPannel: UIView!
+    // storyboard가 로드된 타이밍에는 constraint가 쓰이지 않기 떄문에 strong
+    @IBOutlet weak var landscapeTitleLabel: UILabel!
+    @IBOutlet weak var landscapePlayButton: UIButton!
+    @IBOutlet var playerViewBottomConstraint: NSLayoutConstraint!
 
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -40,7 +45,11 @@ class VideoViewController: UIViewController {
     private let viewModel = VideoViewModel()
     private var isControlPannelHidden: Bool = true {
         didSet {
-            self.portraitControlPanel.isHidden = self.isControlPannelHidden
+            if self.isLandscape(size: self.view.frame.size) {
+                self.landscapeControlPannel.isHidden = self.isControlPannelHidden
+            } else {
+                self.portraitControlPanel.isHidden = self.isControlPannelHidden
+            }
         }
     }
 
@@ -67,6 +76,17 @@ class VideoViewController: UIViewController {
         self.viewModel.request()
     }
 
+    // size로 가로인지, 세로인지 파악
+    override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
+        self.switchControlPannel(size: size)
+        super.viewWillTransition(to: size, with: coordinator)
+        self.playerViewBottomConstraint.isActive = self.isLandscape(size: size)
+    }
+
+    private func isLandscape(size: CGSize) -> Bool {
+        size.width > size.height
+    }
+
     private func bindViewModel() {
         self.viewModel.dataChangeHandler = { [weak self] in
             self?.setupData($0)
@@ -78,6 +98,7 @@ class VideoViewController: UIViewController {
         self.playerView.play()
 
         self.titleLabel.text = video.title
+        self.landscapeTitleLabel.text = video.title
         self.channelThumbnailImageView.loadImage(url: video.channelImageUrl)
         self.channelNameLabel.text = video.channel
         self.updateDateLabel.text = Self.dateFormatter.string(from: Date(timeIntervalSince1970: video.uploadTimestamp))
@@ -126,15 +147,31 @@ extension VideoViewController {
     @IBAction func expandDidTap(_ sender: Any) {
     }
 
+    @IBAction func shrinkDidTap(_ sender: Any) {
+    }
+
     private func updatePlayButton(isPlaying: Bool) {
         let playImage = isPlaying ? UIImage(named: "small_pause") : UIImage(named: "small_play")
         self.playButton.setImage(playImage, for: .normal)
+
+        let landscapePlayImage = isPlaying ? UIImage(named: "big_pause") : UIImage(named: "big_play")
+        self.landscapePlayButton.setImage(playImage, for: .normal)
     }
 }
 
 // MARK: - delegate
 
 extension VideoViewController: PlayerViewDelegate {
+    private func switchControlPannel(size: CGSize) {
+        // control pannel이 보일 경우만 처리하도록
+        guard self.isControlPannelHidden == false else {
+            return
+        }
+
+        self.landscapeControlPannel.isHidden = !self.isLandscape(size: size) // portrait일 경우 landscapepannel hidden
+        self.portraitControlPanel.isHidden = self.isLandscape(size: size) // landscape일 경우 portraitpannel hidden
+    }
+
     func playerViewReadyToPlay(_ playView: PlayerView) {
         self.updatePlayButton(isPlaying: playView.isPlaying)
     }
